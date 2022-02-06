@@ -1,8 +1,7 @@
-const app = require('./../app/server')
+require('./../app/server')
 const {body, validationResult} = require('express-validator');
 const Response = require("./../components/response");
 const recordApi = require("./../api/recordsApi")
-const {isInt} = require("validator");
 
 module.exports = (app) => {
     app.post('/getFilteredRecords',
@@ -64,7 +63,6 @@ module.exports = (app) => {
             const errors = validationResult(req);
 
 
-            // if(moment(req.body.startDate, "YYYY-MM-DD").isValid()  && moment(req.body.endDate, "YYYY-MM-DD").isValid()  && !isNaN(req.body.minCount) && !isNaN(req.body.maxCount)  ) {
             if (!errors.isEmpty()) {
                 console.log(JSON.stringify(errors))
                 new Response(res, {code: 2, message: errors.array()}).sendResponse()

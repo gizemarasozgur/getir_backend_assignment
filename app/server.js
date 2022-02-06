@@ -1,17 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser')
-const dbSettings = require('./dbSettings')
 const app = express();
-require('dotenv').config()
-app.use(express.json());
+const Response = require('./../components/response')
 
+require('./dbSettings')()
+require('dotenv').config()
+
+
+app.use(express.json());
 app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}))
 
-const recordsFilteringRouter = require('../routers/recordFilteringRouter')(app)
-const Response = require('./../components/response')
-
-dbSettings()
+require('../routers/recordFilteringRouter')(app)
 
 
 app.use((req, res, next) => {
@@ -31,7 +31,6 @@ app.use((err, req, res, next) => {
         new Response(res, {code: 3, message: err}).sendResponse();
     }
 })
-
 
 if (process.env.NODE_ENV != 'test') app.listen(process.env.PORT);
 

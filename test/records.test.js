@@ -1,7 +1,6 @@
 process.env.NODE_ENV = 'test'
 const server = require('../app/server.js')
 const supertest = require('supertest')
-const {body} = require("express-validator");
 const request = supertest(server);
 
 
@@ -16,7 +15,6 @@ test("No data available", async () => {
             expect(response.body.code).toBe("2");
         })
         .catch(err => {
-            // write test for failure here
             console.log(`Error ${err}`)
         });
 
@@ -25,7 +23,7 @@ test("No data available", async () => {
 
 
 // it checks whether all request payload type are correct and return error about all fields.
-// So there is no need to check that alll request payload type is correct, we can see which data has error with error array
+// So there is no need to check that all request payload type is correct, we can see which data has error with error array
 test("All request payload type is wrong", async () => {
 
     await request
@@ -40,7 +38,6 @@ test("All request payload type is wrong", async () => {
             expect(response.body.code).toBe("2");
         })
         .catch(err => {
-            // write test for failure here
             console.log(`Error ${err}`)
         });
 
@@ -63,7 +60,6 @@ test("Request payloads are not in correct value range", async () => {
             expect(response.body.code).toBe("2");
         })
         .catch(err => {
-            // write test for failure here
             console.log(`Error ${err}`)
         });
 
@@ -87,7 +83,6 @@ test("All request payloads is correct", async () => {
             expect(response.body.code).toBe("0");
         })
         .catch(err => {
-            // write test for failure here
             console.log(`Error ${err}`)
         });
 
@@ -111,7 +106,6 @@ test("All request payloads is correct but there is no available data", async () 
             expect(response.body.code).toBe("1");
         })
         .catch(err => {
-            // write test for failure here
             console.log(`Error ${err}`)
         });
 
