@@ -11,13 +11,13 @@ This API is written on node.js language and uses the MongoDB database. There is 
 > - dotenv
 > - JEST and supertest
 
-**Heroku deployment URL**: https://..........herokuapp.com/
+**Heroku deployment URL**: https://getir-backend-assignment-gizem.herokuapp.com/
 
 ## Getting Started
 
 
 
-    $ git clone https://github.com/.......
+    $ git clone https://github.com/gizemarasozgur/getir_backend_assignment.git
     $ cd getir_backend_assignment
     $ npm install
     $ npm start
