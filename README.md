@@ -11,8 +11,7 @@ This API is written on node.js language and uses the MongoDB database. There is 
 > - dotenv
 > - JEST and supertest
 
-**Heroku deployment URL**: https://getir-backend-assignment-gizem.herokuapp.com/
-
+**Heroku deployment URL**: https://getir-backend-assignment-gizem.herokuapp.com/getFilteredRecords
 ## Getting Started
 
 
